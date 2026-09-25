@@ -154,6 +154,6 @@ Anything that does not serve answering that question is out of scope for now.
 **Progress against `DESIGN.md` §15:**
 
 - [x] Item 2 — Android export pipeline. Touch reaches the engine on device.
-- [ ] Item 1 — Project setup (skeleton, README, `.gitignore`, GUT)
-- [ ] Item 3 — Local check script (`tools/check.sh` + pre-commit hook)
+- [x] Item 1 — Project setup (skeleton, README, `.gitignore`, GUT)
+- [x] Item 3 — Local check script (`tools/check.sh` + pre-commit hook)
 - [ ] Items 4–13
