@@ -116,7 +116,7 @@ keep it in this game.
 
 ## Branches
 
-- `main` is always runnable.
+- The default branch is **`master`**, not `main`. `master` is always runnable.
 - Prototypes go on `spike/<question>` branches, named after the question rather
   than the feature — `spike/does-crawling-feel-good`, not `spike/movement-v2`.
 - Never merge a spike wholesale. Cherry-pick the answer or delete the branch.
