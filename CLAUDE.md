@@ -116,7 +116,7 @@ keep it in this game.
 
 ## Branches
 
-- `main` is always runnable.
+- The default branch is **`master`**, not `main`. `master` is always runnable.
 - Prototypes go on `spike/<question>` branches, named after the question rather
   than the feature — `spike/does-crawling-feel-good`, not `spike/movement-v2`.
 - Never merge a spike wholesale. Cherry-pick the answer or delete the branch.
@@ -125,6 +125,17 @@ keep it in this game.
 - `v0.0-pipeline` is the known-good deploy baseline. If an Android build
   breaks, check that tag out first to separate code problems from toolchain
   problems.
+
+---
+
+## Delivering changes
+
+- **Never push.** Not to any branch or remote, and not a branch deletion
+  either. I push.
+- Commit locally, in small commits as usual.
+- Hand the changes over as a **downloadable patch file in chat**, made with
+  `git format-patch <base>..HEAD --stdout > <name>.patch` so I can apply the
+  commits with `git am`. Say what base it applies on.
 
 ---
 
@@ -154,6 +165,6 @@ Anything that does not serve answering that question is out of scope for now.
 **Progress against `DESIGN.md` §15:**
 
 - [x] Item 2 — Android export pipeline. Touch reaches the engine on device.
-- [ ] Item 1 — Project setup (skeleton, README, `.gitignore`, GUT)
-- [ ] Item 3 — Local check script (`tools/check.sh` + pre-commit hook)
+- [x] Item 1 — Project setup (skeleton, README, `.gitignore`, GUT)
+- [x] Item 3 — Local check script (`tools/check.sh` + pre-commit hook)
 - [ ] Items 4–13

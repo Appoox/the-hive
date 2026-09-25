@@ -1,3 +1,14 @@
 # Godot 4+ specific ignores
 .godot/
 /android/
+
+# Android build outputs. The export path points outside the repo, but the
+# APK signing sidecar (.idsig) has landed in the project root before.
+*.apk
+*.aab
+*.idsig
+
+# .uid files must always be committed: they are how resource references
+# survive file moves (CLAUDE.md, Godot file rules). Re-include them
+# explicitly so no global or inherited ignore rule can drop them.
+!*.uid
