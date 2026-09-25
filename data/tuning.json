@@ -1,0 +1,103 @@
+{
+  "_comment": "Starting values only. Every one of these is a guess calibrated to the constraints in DESIGN.md. The v0.2 milestone exists to find out which are wrong. All values are exposed as sliders in the debug tuning overlay and hot-reload without a rebuild.",
+
+  "sim": {
+    "_comment": "Core loop. Changing tick_hz changes behaviour, not just smoothness — every rate below is per real second and derived from it.",
+    "tick_hz": 20,
+    "default_seed": 1
+  },
+
+  "movement": {
+    "_comment": "Feel parameters. These cannot be reasoned about, only felt. Expect to change all of them within the first hour on device. Speeds are in tiles per second.",
+    "crawl_speed": 4.0,
+    "turn_rate": 8.0,
+    "surface_stick_force": 400.0,
+    "corner_ease": 0.15,
+    "carry_speed_mult": 0.55,
+    "carry_turn_penalty": 0.4,
+    "wander_noise": 0.25
+  },
+
+  "terrain": {
+    "_comment": "Nest map is 150x80 tiles. dig_time_base is seconds to fully dig one tile at depth 0; depth multiplier makes deep soil uneconomic rather than impossible — this is the bedrock mechanism.",
+    "nest_width_tiles": 150,
+    "nest_height_tiles": 80,
+    "dig_time_base": 2.0,
+    "dig_depth_multiplier": 0.05,
+    "chamber_min_tiles": 12,
+    "rock_density": 0.08,
+    "air_pocket_density": 0.03,
+    "spoil_haul_time": 1.5
+  },
+
+  "pheromone": {
+    "_comment": "Diffusion is mechanically required, not decorative — gradient following cannot work on a zero-width trail. Half-lives are in seconds. The forage/alarm gap is where the interesting behaviour lives: forage becomes infrastructure, alarm stays an emergency.",
+    "diffusion_rate": 0.08,
+    "forage_half_life": 180.0,
+    "alarm_half_life": 25.0,
+    "player_trail_strength": 5.0,
+    "ai_trail_strength": 1.0,
+    "player_alarm_strength": 8.0,
+    "death_alarm_burst": 4.0,
+    "damage_alarm_burst": 3.0,
+    "entrance_transfer_rate": 0.15,
+    "gradient_sample_radius": 2
+  },
+
+  "colony": {
+    "_comment": "Calibrated so a colony grows from 8 to roughly 80 over 40-60 minutes of good foraging, and dies in 20-30 minutes when played badly. food_upkeep is per ant per second and is the single most sensitive number here.",
+    "starting_ants": 8,
+    "starting_larvae": 3,
+    "starting_food": 60,
+    "egg_interval": 20.0,
+    "food_per_larva": 5,
+    "larva_maturation_time": 90.0,
+    "larva_starve_time": 180.0,
+    "food_upkeep_per_ant": 0.02,
+    "soldier_ratio_default": 0.2,
+    "food_per_crumb": 10
+  },
+
+  "surface": {
+    "_comment": "Food respawn drives the whole economy ceiling. If the colony plateaus too low, this is the first number to raise.",
+    "width_tiles": 200,
+    "height_tiles": 120,
+    "food_source_count": 12,
+    "food_respawn_interval": 45.0,
+    "food_per_source": 3
+  },
+
+  "worm": {
+    "_comment": "Tuned for 4-6 soldiers to kill one, losing 1-2. brood_target_weight is what makes it a threat to the colony rather than a wandering hazard that eats whichever worker was closest.",
+    "health": 200.0,
+    "damage_per_second": 15.0,
+    "move_speed": 2.5,
+    "retreat_health_pct": 0.2,
+    "spawn_interval": 240.0,
+    "spawn_interval_min": 120.0,
+    "spawn_interval_decay": 0.95,
+    "brood_target_weight": 4.0,
+    "granary_target_weight": 2.0,
+    "ant_target_weight": 1.0
+  },
+
+  "combat": {
+    "_comment": "Only soldiers have these. Workers have no combat values at all — that absence is deliberate and load-bearing.",
+    "soldier_health": 40.0,
+    "soldier_damage_per_second": 8.0,
+    "soldier_attack_range": 1.0,
+    "alarm_response_radius": 20.0
+  },
+
+  "presentation": {
+    "_comment": "The only section game/ may read. sim/ must never touch this. tile_render_size is the tile-to-pixel mapping at 1x zoom, in design pixels at 1920x1080.",
+    "tile_render_size": 32.0,
+    "default_zoom": 1.5,
+    "min_zoom": 0.5,
+    "max_zoom": 4.0,
+    "camera_smoothing": 0.12,
+    "scent_wisp_opacity": 0.15,
+    "scent_heatmap_opacity": 0.55,
+    "entrance_glow_scale": 1.0
+  }
+}
